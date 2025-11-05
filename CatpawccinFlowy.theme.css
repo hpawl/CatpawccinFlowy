@@ -1,0 +1,453 @@
+/**
+ * @name Catpawccin Flowy
+ * @description Fully optimized Catppccin Latte/Mocha with custom user panel + EmojiReplace and Radial Status
+ * @author h.pawl_ (Modifications & Integration)
+ * @version 2.0.0
+ */
+
+/* ============================================================================ */
+/* CREDITS & ATTRIBUTION */
+/* ============================================================================ */
+/*
+  ORIGINAL THEME CREATORS:
+    → refact0r - Midnight Discord Theme
+      https://github.com/refact0r/midnight-discord
+    
+    → Catppuccin Project - Color Palettes & Design
+      https://github.com/catppuccin/catppuccin
+  
+  PLUGIN INTEGRATIONS:
+    → DevilBro - EmojiReplace Theme
+      https://github.com/mwittrien/BetterDiscordAddons
+    
+    → DiscordStyles - RadialStatus Plugin
+      https://github.com/DiscordStyles/RadialStatus
+  
+  MODIFICATIONS & CUSTOMIZATIONS BY:
+    → h.pawl_ - User Panel Customization, Window Controls, Color Integration,
+               and complete optimization for this unified theme
+  
+  RESOURCES:
+    → Catppuccin Wallpapers by orangci
+      https://github.com/orangci/walls-catppuccin-mocha
+  
+  This theme combines and builds upon these amazing projects with custom
+  modifications for improved usability and cohesive design.
+*/
+
+/* ============================================================================ */
+
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+@import url('https://discordstyles.github.io/RadialStatus/RadialStatus.css');
+
+
+/* ============================================================================ */
+/* EMOJI PROVIDER - CHANGE THIS LINE TO SWAP EMOJIS */
+/* ============================================================================ */
+/*  Supported Providers:
+    → Apple
+    → BlobMoji
+    → Facebook
+    → Google
+    → Huawei
+    → JoyPixels
+    → Microsoft
+    → Microsoft-3D
+    → OpenMoji
+    → Samsung
+    → Samsung-Old
+    → Toss
+    → WhatsApp
+/*                                                                          REPLACE THIS (CASE SENSITIVE)     */
+/*                                                                                    ↓↓↓↓↓                   */
+@import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/EmojiReplace/base/Facebook.css);
+
+
+/* ============================================================================ */
+/* CUSTOMIZATION VARIABLES - CHANGE THESE TO CUSTOMIZE */
+/* ============================================================================ */
+
+
+body {
+  /* Blur & Transparency */
+  --blur-amount: 8px;
+  
+  /* User Panel Avatar */
+  --user-panel-padding: 18px;
+  --user-panel-gap: 45px;
+  --avatar-hover-scale: 1.05;
+  --avatar-hover-transition: 0.35s ease;
+  
+  /* Background Images */
+  --bg-light-image: url('https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/flowers-18.jpg');
+  --bg-dark-image: url('https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/flowers-21.png');
+  
+  /* Other Settings */
+  --font: 'figtree';
+  --gap: 12px;
+  --divider-thickness: 4px;
+  --border-thickness: 1px;
+  --animations: on;
+  --custom-dms-icon: custom;
+  --custom-chatbar: separated;
+  --chatbar-height: 56px;
+  --small-user-panel: on;
+  --custom-window-controls: on;
+  --window-control-size: 14px;
+  --top-bar-button-position: titlebar;
+}
+
+
+/* ============================================================================ */
+/* CATPPUCCIN PALETTES */
+/* ============================================================================ */
+
+
+:root.theme-light {
+  /* Latte */
+  --cat-text: #4c4f69;
+  --cat-subtext1: #5c5f77;
+  --cat-subtext0: #6c6f85;
+  --cat-overlay1: #8c8fa1;
+  --cat-overlay0: #9ca0b0;
+  --cat-surface2: #acb0be;
+  --cat-surface1: #bcc0ca;
+  --cat-surface0: #ccd0da;
+  --cat-mantle: #e6e9ef;
+  --cat-crust: #dce0e8;
+  --cat-pink: #ea76cb;
+  --cat-flamingo: #dd7878;
+  --cat-red: #d20f39;
+  --cat-green: #40a02b;
+  --cat-yellow: #df8e1d;
+  --cat-blue: #1e66f5;
+  --cat-lavender: #7287fd;
+  --cat-mauve: #c6a0f6;
+  --cat-peach: #fe640b;
+}
+
+
+:root.theme-dark {
+  /* Mocha */
+  --cat-text: #cdd6f4;
+  --cat-subtext1: #bac2de;
+  --cat-subtext0: #a6adc8;
+  --cat-overlay1: #7f849c;
+  --cat-overlay0: #6c7086;
+  --cat-surface2: #585b70;
+  --cat-surface1: #45475a;
+  --cat-surface0: #313244;
+  --cat-mantle: #181825;
+  --cat-crust: #11111b;
+  --cat-pink: #f5c2e7;
+  --cat-flamingo: #f2cdcd;
+  --cat-red: #f38ba8;
+  --cat-green: #a6e3a1;
+  --cat-yellow: #f9e2af;
+  --cat-blue: #89b4fa;
+  --cat-lavender: #b4befe;
+  --cat-mauve: #cba6f7;
+  --cat-peach: #fab387;
+}
+
+
+/* ============================================================================ */
+/* MIDNIGHT BASE SETTINGS */
+/* ============================================================================ */
+
+
+body {
+  --code-font: '';
+  font-weight: 400;
+  --list-item-transition: 0.2s ease;
+  --dms-icon-svg-transition: 0.4s ease;
+  --border-hover-transition: 0.2s ease;
+  --top-bar-height: var(--gap);
+  --top-bar-title-position: off;
+  --subtle-top-bar-title: off;
+  --dms-icon-svg-url: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z" fill="%23ea76cb"/></svg>');
+  --dms-icon-svg-size: 90%;
+  --dms-icon-color-before: var(--cat-crust);
+  --dms-icon-color-after: var(--cat-text);
+  --custom-dms-background: color;
+  --dms-background-color: linear-gradient(70deg, var(--cat-pink), var(--cat-flamingo), var(--cat-red));
+  --background-image: on;
+  --transparency-tweaks: on;
+  --remove-bg-layer: off;
+  --panel-blur: on;
+  --bg-floating: var(--cat-mantle);
+}
+
+
+:root.theme-light body {
+  --background-image-url: var(--bg-light-image);
+  --bg-floating: rgba(230, 233, 239, 0.82);
+}
+
+
+:root.theme-dark body {
+  --background-image-url: var(--bg-dark-image);
+  --bg-floating: rgba(24, 24, 37, 0.85);
+}
+
+
+/* ============================================================================ */
+/* COLOR SYSTEM - LATTE (Light) */
+/* ============================================================================ */
+
+
+:root.theme-light {
+  --colors: on;
+  --text-0: var(--cat-text);
+  --text-1: var(--cat-text);
+  --text-2: var(--cat-subtext1);
+  --text-3: var(--cat-subtext0);
+  --text-4: var(--cat-overlay1);
+  --text-5: var(--cat-overlay0);
+  --bg-1: rgba(204, 208, 218, 0.8);
+  --bg-2: rgba(188, 192, 204, 0.8);
+  --bg-3: rgba(172, 176, 190, 0.8);
+  --bg-4: rgba(230, 233, 239, 0.75);
+  --hover: rgba(234, 118, 203, 0.15);
+  --active: rgba(234, 118, 203, 0.25);
+  --active-2: rgba(234, 118, 203, 0.32);
+  --message-hover: rgba(234, 118, 203, 0.1);
+  --accent-1: var(--cat-pink);
+  --accent-2: var(--cat-pink);
+  --accent-3: var(--cat-pink);
+  --accent-4: var(--cat-flamingo);
+  --accent-5: var(--cat-red);
+  --accent-new: var(--cat-pink);
+  --mention: linear-gradient(to right, rgba(234, 118, 203, 0.2) 40%, transparent);
+  --mention-hover: linear-gradient(to right, rgba(234, 118, 203, 0.28) 40%, transparent);
+  --reply: linear-gradient(to right, rgba(140, 143, 161, 0.15) 40%, transparent);
+  --reply-hover: linear-gradient(to right, rgba(140, 143, 161, 0.22) 40%, transparent);
+  --online: var(--cat-green);
+  --dnd: var(--cat-red);
+  --idle: var(--cat-yellow);
+  --streaming: var(--cat-lavender);
+  --offline: var(--cat-overlay1);
+  --border-light: rgba(234, 118, 203, 0.15);
+  --border: rgba(234, 118, 203, 0.22);
+  --border-hover: rgba(234, 118, 203, 0.3);
+  --button-border: rgba(140, 143, 161, 0.25);
+  --red-1: var(--cat-red);
+  --red-2: var(--cat-flamingo);
+  --red-3: var(--cat-red);
+  --red-4: var(--cat-peach);
+  --red-5: var(--cat-red);
+  --green-1: var(--cat-green);
+  --green-2: var(--cat-green);
+  --green-3: var(--cat-green);
+  --green-4: var(--cat-green);
+  --green-5: var(--cat-green);
+  --blue-1: var(--cat-blue);
+  --blue-2: var(--cat-blue);
+  --blue-3: var(--cat-lavender);
+  --blue-4: var(--cat-blue);
+  --blue-5: var(--cat-blue);
+  --yellow-1: var(--cat-yellow);
+  --yellow-2: var(--cat-yellow);
+  --yellow-3: var(--cat-yellow);
+  --yellow-4: var(--cat-yellow);
+  --yellow-5: var(--cat-yellow);
+  --purple-1: var(--cat-mauve);
+  --purple-2: var(--cat-lavender);
+  --purple-3: var(--cat-mauve);
+  --purple-4: var(--cat-lavender);
+  --purple-5: var(--cat-mauve);
+  --rs-small-spacing: 2px;
+  --rs-medium-spacing: 3px;
+  --rs-large-spacing: 4px;
+  --rs-small-width: 2px;
+  --rs-medium-width: 3px;
+  --rs-large-width: 4px;
+  --rs-avatar-shape: 30%;
+  --rs-online-color: var(--cat-green);
+  --rs-idle-color: var(--cat-yellow);
+  --rs-dnd-color: var(--cat-red);
+  --rs-offline-color: var(--cat-overlay1);
+  --rs-streaming-color: var(--cat-lavender);
+  --rs-invisible-color: var(--cat-overlay0);
+  --rs-self-speaking-color: var(--cat-green);
+  --rs-phone-visible: none;
+  --header-primary: var(--cat-text) !important;
+  --header-secondary: var(--cat-subtext1) !important;
+  --text-normal: var(--cat-text) !important;
+  --text-muted: var(--cat-subtext0) !important;
+  --interactive-normal: var(--cat-text) !important;
+  --interactive-hover: var(--cat-pink) !important;
+  --interactive-active: var(--cat-pink) !important;
+  --interactive-muted: var(--cat-overlay1) !important;
+}
+
+
+/* ============================================================================ */
+/* COLOR SYSTEM - MOCHA (Dark) */
+/* ============================================================================ */
+
+
+:root.theme-dark {
+  --colors: on;
+  --text-0: var(--cat-text);
+  --text-1: var(--cat-text);
+  --text-2: var(--cat-subtext1);
+  --text-3: var(--cat-subtext0);
+  --text-4: var(--cat-overlay1);
+  --text-5: var(--cat-overlay0);
+  --bg-1: rgba(88, 91, 112, 0.8);
+  --bg-2: rgba(69, 71, 90, 0.8);
+  --bg-3: rgba(49, 50, 68, 0.8);
+  --bg-4: rgba(24, 24, 37, 0.78);
+  --hover: rgba(245, 194, 231, 0.15);
+  --active: rgba(245, 194, 231, 0.25);
+  --active-2: rgba(245, 194, 231, 0.32);
+  --message-hover: rgba(245, 194, 231, 0.1);
+  --accent-1: var(--cat-pink);
+  --accent-2: var(--cat-pink);
+  --accent-3: var(--cat-pink);
+  --accent-4: var(--cat-flamingo);
+  --accent-5: var(--cat-red);
+  --accent-new: var(--cat-pink);
+  --mention: linear-gradient(to right, rgba(245, 194, 231, 0.2) 40%, transparent);
+  --mention-hover: linear-gradient(to right, rgba(245, 194, 231, 0.28) 40%, transparent);
+  --reply: linear-gradient(to right, rgba(147, 153, 178, 0.15) 40%, transparent);
+  --reply-hover: linear-gradient(to right, rgba(147, 153, 178, 0.22) 40%, transparent);
+  --online: var(--cat-green);
+  --dnd: var(--cat-red);
+  --idle: var(--cat-yellow);
+  --streaming: var(--cat-lavender);
+  --offline: var(--cat-overlay1);
+  --border-light: rgba(245, 194, 231, 0.15);
+  --border: rgba(245, 194, 231, 0.22);
+  --border-hover: rgba(245, 194, 231, 0.3);
+  --button-border: rgba(147, 153, 178, 0.25);
+  --red-1: var(--cat-red);
+  --red-2: var(--cat-flamingo);
+  --red-3: var(--cat-red);
+  --red-4: var(--cat-peach);
+  --red-5: var(--cat-red);
+  --green-1: var(--cat-green);
+  --green-2: var(--cat-green);
+  --green-3: var(--cat-green);
+  --green-4: var(--cat-green);
+  --green-5: var(--cat-green);
+  --blue-1: var(--cat-blue);
+  --blue-2: var(--cat-blue);
+  --blue-3: var(--cat-lavender);
+  --blue-4: var(--cat-blue);
+  --blue-5: var(--cat-blue);
+  --yellow-1: var(--cat-yellow);
+  --yellow-2: var(--cat-yellow);
+  --yellow-3: var(--cat-yellow);
+  --yellow-4: var(--cat-yellow);
+  --yellow-5: var(--cat-yellow);
+  --purple-1: var(--cat-mauve);
+  --purple-2: var(--cat-lavender);
+  --purple-3: var(--cat-mauve);
+  --purple-4: var(--cat-lavender);
+  --purple-5: var(--cat-mauve);
+  --rs-small-spacing: 2px;
+  --rs-medium-spacing: 3px;
+  --rs-large-spacing: 4px;
+  --rs-small-width: 2px;
+  --rs-medium-width: 3px;
+  --rs-large-width: 4px;
+  --rs-avatar-shape: 30%;
+  --rs-online-color: var(--cat-green);
+  --rs-idle-color: var(--cat-yellow);
+  --rs-dnd-color: var(--cat-red);
+  --rs-offline-color: var(--cat-overlay1);
+  --rs-streaming-color: var(--cat-lavender);
+  --rs-invisible-color: var(--cat-overlay0);
+  --rs-self-speaking-color: var(--cat-green);
+  --rs-phone-visible: none;
+  --header-primary: var(--cat-text) !important;
+  --header-secondary: var(--cat-subtext1) !important;
+  --text-normal: var(--cat-text) !important;
+  --text-muted: var(--cat-subtext0) !important;
+  --interactive-normal: var(--cat-text) !important;
+  --interactive-hover: var(--cat-pink) !important;
+  --interactive-active: var(--cat-pink) !important;
+  --interactive-muted: var(--cat-overlay1) !important;
+}
+
+
+/* ============================================================================ */
+/* WINDOW CONTROL BUTTONS - CATPPUCCIN COLORED */
+/* ============================================================================ */
+
+
+/* Close button - Red */
+.winButtonClose_c38106::after {
+  background-color: var(--cat-flamingo) !important;
+}
+
+
+/* Minimize button - Yellow */
+.winButtonMinMax_c38106:nth-child(1)::after {
+  background-color: var(--cat-yellow) !important;
+}
+
+
+/* Maximize button - Green */
+.winButtonMinMax_c38106:nth-child(2)::after {
+  background-color: var(--cat-green) !important;
+}
+
+
+/* Hover effects */
+.winButton_c38106:hover::after {
+  filter: brightness(1.2);
+}
+
+
+.winButton_c38106:active::after {
+  transform: scale(0.9);
+}
+
+
+/* ============================================================================ */
+/* USER PANEL CUSTOMIZATION */
+/* ============================================================================ */
+
+
+/* Hide username and status text */
+.container__37e49 .nameTag__37e49,
+.container__37e49 .subText__37e49,
+.userTagNoNickname__37e49 {
+  display: none !important;
+}
+
+
+/* Avatar-only layout with evenly spaced buttons */
+.container__37e49 {
+  width: fit-content !important;
+  padding: var(--user-panel-padding) !important;
+  gap: var(--user-panel-gap) !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+}
+
+
+/* Remove background highlight */
+.container__37e49::before {
+  display: none !important;
+}
+
+
+/* Avatar styling */
+.userInfoContainer__37e49 {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+
+.container__37e49 .avatar__37e49 {
+  transition: transform var(--avatar-hover-transition) !important;
+}
+
+
+.container__37e49 .avatar__37e49:hover {
+  transform: scale(var(--avatar-hover-scale)) !important;
+}
