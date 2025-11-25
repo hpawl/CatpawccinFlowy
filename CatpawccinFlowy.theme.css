@@ -1,6 +1,6 @@
 /**
- * @name Catpawccin Flowy
- * @description Fully optimized Catppccin Latte/Mocha with custom user panel + EmojiReplace and Radial Status
+ * @name Catpawccin Flowwy
+ * @description Catppccin Latte/Mocha with custom user panel + EmojiReplace and Radial Status
  * @author h.pawl_ (Modifications & Integration)
  * @version 2.0.0
  */
@@ -73,14 +73,15 @@ body {
   --blur-amount: 8px;
   
   /* User Panel Avatar */
-  --user-panel-padding: 18px;
-  --user-panel-gap: 45px;
+  --user-panel-padding: 0px;
+  --user-panel-gap: 48px;
+  --user-panel-gap-left: 36px;
   --avatar-hover-scale: 1.05;
   --avatar-hover-transition: 0.35s ease;
   
   /* Background Images */
-  --bg-light-image: url('https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/flowers-18.jpg');
-  --bg-dark-image: url('https://raw.githubusercontent.com/orangci/walls-catppuccin-mocha/master/flowers-21.png');
+  --bg-light-image: url('https://files.catbox.moe/5ikqlt.webp');
+  --bg-dark-image: url('https://files.catbox.moe/00lnfa.webp');
   
   /* Other Settings */
   --font: 'figtree';
@@ -168,7 +169,7 @@ body {
   --dms-icon-svg-url: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z" fill="%23ea76cb"/></svg>');
   --dms-icon-svg-size: 90%;
   --dms-icon-color-before: var(--cat-crust);
-  --dms-icon-color-after: var(--cat-text);
+  --dms-icon-color-after: var(--cat-mantle);
   --custom-dms-background: color;
   --dms-background-color: linear-gradient(70deg, var(--cat-pink), var(--cat-flamingo), var(--cat-red));
   --background-image: on;
@@ -262,7 +263,7 @@ body {
   --rs-small-width: 2px;
   --rs-medium-width: 3px;
   --rs-large-width: 4px;
-  --rs-avatar-shape: 30%;
+  --rs-avatar-shape: 50%;
   --rs-online-color: var(--cat-green);
   --rs-idle-color: var(--cat-yellow);
   --rs-dnd-color: var(--cat-red);
@@ -353,7 +354,7 @@ body {
   --rs-small-width: 2px;
   --rs-medium-width: 3px;
   --rs-large-width: 4px;
-  --rs-avatar-shape: 30%;
+  --rs-avatar-shape: 50%;
   --rs-online-color: var(--cat-green);
   --rs-idle-color: var(--cat-yellow);
   --rs-dnd-color: var(--cat-red);
@@ -376,36 +377,50 @@ body {
 /* ============================================================================ */
 /* WINDOW CONTROL BUTTONS - CATPPUCCIN COLORED */
 /* ============================================================================ */
-
-
 /* Close button - Red */
 .winButtonClose_c38106::after {
   background-color: var(--cat-flamingo) !important;
 }
-
 
 /* Minimize button - Yellow */
 .winButtonMinMax_c38106:nth-child(1)::after {
   background-color: var(--cat-yellow) !important;
 }
 
-
 /* Maximize button - Green */
 .winButtonMinMax_c38106:nth-child(2)::after {
   background-color: var(--cat-green) !important;
 }
 
-
-/* Hover effects */
-.winButton_c38106:hover::after {
-  filter: brightness(1.2);
+/* Hover effects - SVG circles */
+.winButtonClose_c38106:hover::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><circle cx="13" cy="14" r="6" fill="white"/></svg>') !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  filter: none;
 }
 
+.winButtonMinMax_c38106:nth-child(1):hover::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><circle cx="13" cy="14" r="6" fill="white"/></svg>') !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  filter: none;
+}
 
+.winButtonMinMax_c38106:nth-child(2):hover::after {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="12" height="12"><circle cx="13" cy="14" r="6" fill="white"/></svg>') !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  filter: none;
+}
+
+/* Active state */
 .winButton_c38106:active::after {
-  transform: scale(0.9);
+  transform: scale(0.8);
 }
-
 
 /* ============================================================================ */
 /* USER PANEL CUSTOMIZATION */
@@ -424,6 +439,7 @@ body {
 .container__37e49 {
   width: fit-content !important;
   padding: var(--user-panel-padding) !important;
+  padding-left: var(--user-panel-gap-left) !important;
   gap: var(--user-panel-gap) !important;
   justify-content: space-around !important;
   align-items: center !important;
